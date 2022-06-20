@@ -12,7 +12,7 @@ from sklearn.feature_selection import SelectKBest, mutual_info_regression
 
 from pipeline.config import TEST_SET_SIZE, SEED_SPLIT, SEED_NUMPY
 from pipeline.config import SELECTOR_K_GRID, REGRESSION_ALPHA_GRID, POLYNOMIAL_DEGREE_GRID
-from pipeline.config import CV_FOLDS, ARTIFACT_PATH
+from pipeline.config import CV_FOLDS, ARTIFACT_PATH, FINAL_COLS
 
 
 import logging
@@ -64,7 +64,7 @@ def find_best_model(X_train, y_train):
                         cv = CV_FOLDS,
                         scoring = 'r2')
     
-    grid.fit(X_train, y_train)
+    grid.fit(X_train[FINAL_COLS], y_train)
     return grid
 
 def evaluate_model(grid, X_test, y_test):
@@ -72,7 +72,7 @@ def evaluate_model(grid, X_test, y_test):
     Getting final metrics for the best model
     """
     
-    y_predicted = grid.predict(X_test)
+    y_predicted = grid.predict(X_test[FINAL_COLS])
     rmse = mean_squared_error(y_test, y_predicted)
     r2 = r2_score(y_test, y_predicted)
     logger.info(f"Root Mean Square Error (RMSE) for validation test: {rmse}")
@@ -93,7 +93,7 @@ def get_final_model(grid, X_train, y_train):
                                              k = best_params['selector__k'])),
                      ('poly', PolynomialFeatures(degree = best_params['poly__degree'])),
                      ('model', Ridge(alpha = best_params['model__alpha']))])
-    pipe.fit(X_train, y_train)
+    pipe.fit(X_train[FINAL_COLS], y_train)
     
     logger.info("Creating pipeline file ...")
     dump(pipe, ARTIFACT_PATH)

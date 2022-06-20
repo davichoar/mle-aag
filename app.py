@@ -16,13 +16,13 @@ app = FastAPI()
 @app.post("/predict", response_model=PredictResponse)
 async def predict(month_data: MonthData):
     df = format_dataframe(month_data)
-    predicted_milk_price = model.predict(df)
+    predicted_milk_price = pipeline.predict(df)
     return {"precio": predicted_milk_price}
 
 
 @app.get("/health", status_code=200, response_model=HealthCheckResponse)
 async def health(response: Response):
-    health_check_response = health_check()
+    health_check_response = healthcheck()
     if health_check_response.get("status") == "FAILURE":
         response.status_code = status.HTTP_503_SERVICE_UNAVAILABLE
     return health_check_response

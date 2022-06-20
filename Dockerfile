@@ -15,4 +15,6 @@ ENV LC_ALL es_ES.UTF-8
 
 COPY . /app
 
-CMD ["bash", "run_pipeline_and_deploy.sh"]
+EXPOSE 8080
+
+CMD ["bash", "pipeline_and_deploy.sh"]

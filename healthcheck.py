@@ -6,7 +6,10 @@ from joblib import load
 from sklearn.pipeline import Pipeline
 from pydantic import BaseModel
 
-from constants import ARTIFACT_PATH, TEST_FEATURES
+from constants import ARTIFACT_PATH, TEST_FEATURES, FINAL_COLS
+import logging
+logger = logging.getLogger('healthcheck')
+logging.basicConfig(level=logging.INFO)
 
 
 class HealthCheckResponse(BaseModel):
@@ -24,7 +27,8 @@ def healthcheck():
     test_df = pd.DataFrame([TEST_FEATURES])
     try:
         pipeline = load(ARTIFACT_PATH)
-        _ = model.predict(test_df)
+        prediction = pipeline.predict(test_df[FINAL_COLS])
+        logger.info(f'Prediction for healthcheck: {prediction[0]}')
     except Exception as e:
         status = "FAILURE"
         # Catch error messages of features/model errors

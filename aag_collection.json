@@ -1,0 +1,63 @@
+{
+	"info": {
+		"_postman_id": "0e24654d-07d1-47a6-9710-85850c24947a",
+		"name": "aag",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://0.0.0.0:8080/health",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "predict",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"periodo\" : \"2020-11-01\",\n    \"precipitaciones\": {\n        \"coquimbo\": 2.863,\n         \"valparaiso\": 3.278,\n         \"metropolitanaSantiago\": 9.391,\n         \"oHiggins\": 12.747,\n         \"maule\": 15.208,\n         \"biobio\": 123,\n         \"laAraucania\": 103.734,\n         \"losRios\":164.055\n    },\n    \"pib\": {\n        \"agropecuarioSilvicola\": 246063402,\n         \"pesca\": 658990364,\n         \"mineria\": 136630734,\n         \"mineriaCobre\": 120179215,\n         \"otrasMineria\": 164515187,\n         \"industriaManufacturera\":132143102,\n         \"alimentos\": 340178603,\n         \"bebidasYTabaco\": 166094283,\n         \"textil\": 322548927,\n         \"maderasYMuebles\": 765629098,\n         \"celulosa\": 102931541,\n         \"refinacionPetroleo\": 931990492,\n         \"quimica\": 216543583,\n         \"mineralesNoMetalicos\": 749235327,\n         \"productosMetalicos\": 218742629,\n         \"electricidad\": 333038258,\n         \"construccion\": 775062878,\n         \"comercio\": 100824382,\n         \"restaurantesHoteles\": 225515553,\n         \"transporte\": 790501637,\n         \"comunicaciones\": 388098255,\n         \"serviciosFinancieros\": 582859961,\n         \"serviciosEmpresariales\": 12033407,\n         \"serviciosVivienda\": 858538617,\n         \"serviciosPersonales\": 152382141,\n         \"adminPublica\": 537090521,\n         \"aCostoFactores\": 110258124,\n         \"absoluto\": 120212803\n    },\n    \"imacec\":{\n        \"empalmado\": 104.626,\n         \"produccionBienes\": 103.402,\n         \"minero\": 108.267,\n         \"industria\": 103.467,\n         \"restoBienes\": 99.0,\n         \"comercio\": 96.6,\n         \"servicio\": 107.45,\n         \"aCostoFactores\": 104.851,\n         \"noMinero\": 104.177\n    },\n    \"indiceVentasNoDurablesIVCM\": 100.6\n}"
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/predict",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

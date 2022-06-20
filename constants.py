@@ -62,7 +62,7 @@ TEST_REQUEST = {
 TEST_FEATURES = {
     'anho' : 2022,
     'mes': 6,
-    'coquimbo': 2.863,
+    'Coquimbo': 2.863,
          'Valparaiso': 3.278,
          'Metropolitana_de_Santiago': 9.391,
          'Libertador_Gral__Bernardo_O_Higgins': 10.747,
@@ -107,63 +107,80 @@ TEST_FEATURES = {
          'Imacec_servicios': 107.45,
          'Imacec_a_costo_de_factores': 104.851,
          'Imacec_no_minero': 104.177,
-    "indiceVentasNoDurablesIVCM": 94.6
+    "Indice_de_ventas_comercio_real_no_durables_IVCM": 94.6
 }
 
+
+DATE_KEY = 'periodo'
+MONTH_COL = 'mes'
+YEAR_COL = 'anho'
 
 REPLACE_COLS = {
-    
+        "precipitaciones_coquimbo": "Coquimbo",
+         "precipitaciones_valparaiso": "Valparaiso",
+         "precipitaciones_metropolitanaSantiago": "Metropolitana_de_Santiago",
+         "precipitaciones_oHiggins": "Libertador_Gral__Bernardo_O_Higgins",
+         "precipitaciones_maule": "Maule",
+         "precipitaciones_biobio": "Biobio",
+         "precipitaciones_laAraucania": "La_Araucania",
+         "precipitaciones_losRios": "Los_Rios",
+        "pib_agropecuarioSilvicola": "PIB_Agropecuario_silvicola",
+         "pib_pesca": "PIB_Pesca",
+         "pib_mineria": "PIB_Mineria",
+         "pib_mineriaCobre": "PIB_Mineria_del_cobre",
+         "pib_otrasMineria": "PIB_Otras_actividades_mineras",
+         "pib_industriaManufacturera":"PIB_Industria_Manufacturera",
+         "pib_alimentos": "PIB_Alimentos",
+         "pib_bebidasYTabaco": "PIB_Bebidas_y_tabaco",
+         "pib_textil": "PIB_Textil",
+         "pib_maderasYMuebles": "PIB_Maderas_y_muebles",
+         "pib_celulosa": "PIB_Celulosa",
+         "pib_refinacionPetroleo": "PIB_Refinacion_de_petroleo",
+         "pib_quimica": "PIB_Quimica",
+         "pib_mineralesNoMetalicos": "PIB_Minerales_no_metalicos_y_metalica_basica",
+         "pib_productosMetalicos": "PIB_Productos_metalicos",
+         "pib_electricidad": "PIB_Electricidad",
+         "pib_construccion": "PIB_Construccion",
+         "pib_comercio": "PIB_Comercio",
+         "pib_restaurantesHoteles": "PIB_Restaurantes_y_hoteles",
+         "pib_transporte": "PIB_Transporte",
+         "pib_comunicaciones": "PIB_Comunicaciones",
+         "pib_serviciosFinancieros": "PIB_Servicios_financieros",
+         "pib_serviciosEmpresariales": "PIB_Servicios_empresariales",
+         "pib_serviciosVivienda": "PIB_Servicios_de_vivienda",
+         "pib_serviciosPersonales": "PIB_Servicios_personales",
+         "pib_adminPublica": "PIB_Administracion_publica",
+         "pib_aCostoFactores": "PIB_a_costo_de_factores",
+         "pib_absoluto": "PIB",
+         "imacec_empalmado": "Imacec_empalmado",
+         "imacec_produccionBienes": "Imacec_produccion_de_bienes",
+         "imacec_minero": "Imacec_minero",
+         "imacec_industria": "Imacec_industria",
+         "imacec_restoBienes": "Imacec_resto_de_bienes",
+         "imacec_comercio": "Imacec_comercio",
+         "imacec_servicio": "Imacec_servicios",
+         "imacec_aCostoFactores": "Imacec_a_costo_de_factores",
+         "imacec_noMinero": "Imacec_no_minero",
+        "indiceVentasNoDurablesIVCM": "Indice_de_ventas_comercio_real_no_durables_IVCM"
 }
 
+PIB_COLS = ['PIB_Agropecuario_silvicola', 'PIB_Pesca',
+       'PIB_Mineria', 'PIB_Mineria_del_cobre', 'PIB_Otras_actividades_mineras',
+       'PIB_Industria_Manufacturera', 'PIB_Alimentos', 'PIB_Bebidas_y_tabaco',
+       'PIB_Textil', 'PIB_Maderas_y_muebles', 'PIB_Celulosa',
+       'PIB_Refinacion_de_petroleo', 'PIB_Quimica',
+       'PIB_Minerales_no_metalicos_y_metalica_basica',
+       'PIB_Productos_metalicos', 'PIB_Electricidad', 'PIB_Construccion',
+       'PIB_Comercio', 'PIB_Restaurantes_y_hoteles', 'PIB_Transporte',
+       'PIB_Comunicaciones', 'PIB_Servicios_financieros',
+       'PIB_Servicios_empresariales', 'PIB_Servicios_de_vivienda',
+       'PIB_Servicios_personales', 'PIB_Administracion_publica',
+       'PIB_a_costo_de_factores', 'PIB']
 
-"""
-{'ano': {9: 2014},
- 'mes': {9: 10},
- 'Coquimbo': {9: 2.86377778378334},
- 'Valparaiso': {9: 3.27868506738118},
- 'Metropolitana_de_Santiago': {9: 9.39196308573158},
- 'Libertador_Gral__Bernardo_O_Higgins': {9: 10.7474883784619},
- 'Maule': {9: 15.2082362773266},
- 'Biobio': {9: 44.7946874886117},
- 'La_Araucania': {9: 93.7344629690108},
- 'Los_Rios': {9: 164.0555040325},
- 'PIB_Agropecuario_silvicola': {9: 246063402},
- 'PIB_Pesca': {9: 658990364},
- 'PIB_Mineria': {9: 136630734},
- 'PIB_Mineria_del_cobre': {9: 120179215},
- 'PIB_Otras_actividades_mineras': {9: 164515187},
- 'PIB_Industria_Manufacturera': {9: 132143102},
- 'PIB_Alimentos': {9: 340178603},
- 'PIB_Bebidas_y_tabaco': {9: 166094283},
- 'PIB_Textil': {9: 322548927},
- 'PIB_Maderas_y_muebles': {9: 765629098},
- 'PIB_Celulosa': {9: 102931541},
- 'PIB_Refinacion_de_petroleo': {9: 931990492},
- 'PIB_Quimica': {9: 216543583},
- 'PIB_Minerales_no_metalicos_y_metalica_basica': {9: 749235327},
- 'PIB_Productos_metalicos': {9: 218742629},
- 'PIB_Electricidad': {9: 333038258},
- 'PIB_Construccion': {9: 775062878},
- 'PIB_Comercio': {9: 100824382},
- 'PIB_Restaurantes_y_hoteles': {9: 225515553},
- 'PIB_Transporte': {9: 590501637},
- 'PIB_Comunicaciones': {9: 388098255},
- 'PIB_Servicios_financieros': {9: 582859961},
- 'PIB_Servicios_empresariales': {9: 12033407},
- 'PIB_Servicios_de_vivienda': {9: 858538617},
- 'PIB_Servicios_personales': {9: 152382141},
- 'PIB_Administracion_publica': {9: 537090521},
- 'PIB_a_costo_de_factores': {9: 110258124},
- 'PIB': {9: 120212803},
- 'Imacec_empalmado': {9: 104.626},
- 'Imacec_produccion_de_bienes': {9: 103.402},
- 'Imacec_minero': {9: 108.267},
- 'Imacec_industria': {9: 103.467},
- 'Imacec_resto_de_bienes': {9: 99.0},
- 'Imacec_comercio': {9: 96.6},
- 'Imacec_servicios': {9: 107.45},
- 'Imacec_a_costo_de_factores': {9: 104.851},
- 'Imacec_no_minero': {9: 104.177},
- 'num': {9: 101.278}}
- 
- """
+IMACEC_COLS = ['Imacec_empalmado', 'Imacec_produccion_de_bienes', 'Imacec_minero',
+       'Imacec_industria', 'Imacec_resto_de_bienes', 'Imacec_comercio',
+       'Imacec_servicios', 'Imacec_a_costo_de_factores', 'Imacec_no_minero']
+
+IV_COL = 'Indice_de_ventas_comercio_real_no_durables_IVCM'
+
+FINAL_COLS = [MONTH_COL, YEAR_COL] + PIB_COLS + IMACEC_COLS + [IV_COL]
