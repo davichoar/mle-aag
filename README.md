@@ -10,7 +10,7 @@ docker build -t milkprice . && docker run -d -p 8080:8080 -it milkprice
 ```
 This will run the training pipeline and expose the API on port 8080.
 
-## Estructura del proyecto
+## Project structure
 ```text
 │mle-aag
 │
